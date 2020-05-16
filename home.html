@@ -1,0 +1,100 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.min.css ">
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/bootstrap/js/bootstarp.min.js"></script>
+    <script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <title>Sample RestFull Api</title>
+    <style>
+        .mypic {
+            width: 9rem;
+            height: 8rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row ">
+            <div class="col">
+                <h1 class="text-center"> User List</h1>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn btn-outline-danger" id="clickme" onclick="getUsers(1)">Load Data
+            </button>
+            <div>
+                <button class="btn btn-outline btn-info m-3 " id="addNewUser" onclick="showNewUser()"
+                    style="display: none;">
+                    Add User </button>
+            </div>
+        </div>
+
+
+        <div class="row " id="userContainer"></div>
+        <div class="row">
+            <div class="col">
+                <nav aria-label="Page navigation example  ">
+                    <ul class="pagination pg-blue justify-content-center" id="myPaginataion">
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="userModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/action_page.php">
+                        <input type="hidden" id="userId">
+                        <div class="form-group">
+                            <label> First Name :</label>
+                            <input type="Text" class="form-control" id="firstName">
+                        </div>
+                        <div class="form-group">
+                            <label> Last Name :</label>
+                            <input type="Text" class="form-control" id="lastName">
+                        </div>
+                        <div class="form-group">
+                            <label> Email :</label>
+                            <input type="Text" class="form-control" id="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="email"> Avatar :</label>
+                            <input type="Text" class="form-control" id="avatar">
+                        </div>
+
+
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="saveNewUser()">Save and Exit </button>
+                    <button type="button" class="btn btn-secondary" onclick="saveNewUser(false)">Save and Add New
+                        User</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
